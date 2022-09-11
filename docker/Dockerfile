@@ -27,7 +27,7 @@ RUN wget -O /tmp/RPM-GPG-KEY-mysql https://repo.mysql.com/RPM-GPG-KEY-mysql && \
         apt-key add /tmp/RPM-GPG-KEY-mysql && \
         /bin/echo -e "deb http://repo.mysql.com/apt/debian/ stretch mysql-5.7\ndeb-src http://repo.mysql.com/apt/debian/ stretch mysql-5.7" > /etc/apt/sources.list.d/mysql.list && \
         apt-get update && \
-        DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server
+        DEBIAN_FRONTEND=noninteractive apt-get install -y  --allow-unauthenticated mysql-server
 
 COPY docker_my.cnf /etc/my.cnf
 
@@ -53,7 +53,7 @@ ENV LC_ALL en_US.UTF-8
 ARG HOST_UID=1000
 ENV HOST_UID $HOST_UID
 
-RUN groupadd -g 1000 ithemal && useradd -m -s /bin/bash -r -u $HOST_UID -g ithemal ithemal
+RUN groupadd -g 1000 ithemal && useradd -m -s /bin/bash -r -u 1000 -g ithemal ithemal
 USER ithemal
 WORKDIR /home/ithemal
 

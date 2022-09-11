@@ -5,7 +5,7 @@
 main:
 
         ;;      START_MARKER
-        mov ebx, 111
+        mov ebx, 112
         db 0x64, 0x67, 0x90
 
         ;;      CODE GOES HERE

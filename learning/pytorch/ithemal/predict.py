@@ -17,8 +17,8 @@ import threading
 import torch
 import warnings
 
-START_MARKER = 'bb6f000000646790'.decode('hex')
-END_MARKER = 'bbde000000646790'.decode('hex')
+START_MARKER = b'6f000000646790'.decode('hex')
+END_MARKER = b'de000000646790'.decode('hex')
 
 _TOKENIZER = os.path.join(os.environ['ITHEMAL_HOME'], 'data_collection', 'build', 'bin', 'tokenizer')
 
